@@ -6,5 +6,6 @@
     <string name="menu_settings">Settings</string>
     <string name="profile_name">Sayasinh Joe Phommasone</string>
     <string name="gallery">Gallery</string>
+    <string name="title_activity_second">Gallery</string>
 
 </resources>
