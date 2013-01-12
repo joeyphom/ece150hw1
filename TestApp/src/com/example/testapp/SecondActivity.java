@@ -38,21 +38,8 @@ public class SecondActivity extends Activity {
 
 	            
 	        	Intent intent = new Intent(SecondActivity.this, MainActivity.class);
-	        	Bundle bundle = new Bundle();
-	            
-	            //turning the view into a bmp
-	            Bitmap img = null;
-	            v.setDrawingCacheEnabled(true);
-	            img = Bitmap.createBitmap(v.getDrawingCache());
-	            v.setDrawingCacheEnabled(false);
-	            
-	            //bmp into bytestream
-	            ByteArrayOutputStream stream = new ByteArrayOutputStream();
-	            img.compress(Bitmap.CompressFormat.PNG, 50, stream);
-	            intent.putExtra("byteArray",stream.toByteArray());
-	        	
+	        	intent.putExtra("id", position);
 	        	startActivity(intent);
-	        	//Intent intent = new Intent(this,MainActivity.class);
 	        }
 	    });
 	}
