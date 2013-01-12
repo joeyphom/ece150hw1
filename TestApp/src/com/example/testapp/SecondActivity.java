@@ -1,6 +1,10 @@
 package com.example.testapp;
 
+import java.io.ByteArrayOutputStream;
+
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
@@ -28,9 +32,27 @@ public class SecondActivity extends Activity {
 	    GridView gridview = (GridView) findViewById(R.id.gridview);
 	    gridview.setAdapter(new ImageAdapter(this));
 
-	    gridview.setOnItemClickListener(new OnItemClickListener() {
+	    gridview.setOnItemClickListener(new OnItemClickListener(){
 	        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-	            Toast.makeText(SecondActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+	            Toast.makeText(SecondActivity.this, ""+parent.getItemAtPosition(position).toString(), Toast.LENGTH_LONG).show();
+
+	            
+	        	Intent intent = new Intent(SecondActivity.this, MainActivity.class);
+	        	Bundle bundle = new Bundle();
+	            
+	            //turning the view into a bmp
+	            Bitmap img = null;
+	            v.setDrawingCacheEnabled(true);
+	            img = Bitmap.createBitmap(v.getDrawingCache());
+	            v.setDrawingCacheEnabled(false);
+	            
+	            //bmp into bytestream
+	            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+	            img.compress(Bitmap.CompressFormat.PNG, 50, stream);
+	            intent.putExtra("byteArray",stream.toByteArray());
+	        	
+	        	startActivity(intent);
+	        	//Intent intent = new Intent(this,MainActivity.class);
 	        }
 	    });
 	}
