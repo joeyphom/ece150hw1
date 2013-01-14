@@ -1,10 +1,7 @@
 package com.example.testapp;
 
-import java.io.ByteArrayOutputStream;
-
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
@@ -13,7 +10,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
-import android.widget.Toast;
 
 public class SecondActivity extends Activity {
 	
