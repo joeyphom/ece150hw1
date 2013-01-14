@@ -16,14 +16,6 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 public class SecondActivity extends Activity {
-
-//	@Override
-//	protected void onCreate(Bundle savedInstanceState) {
-//		super.onCreate(savedInstanceState);
-//		setContentView(R.layout.activity_second);
-//		// Show the Up button in the action bar.
-//		getActionBar().setDisplayHomeAsUpEnabled(true);
-//	}
 	
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
@@ -34,8 +26,6 @@ public class SecondActivity extends Activity {
 
 	    gridview.setOnItemClickListener(new OnItemClickListener(){
 	        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-	            Toast.makeText(SecondActivity.this, ""+parent.getItemAtPosition(position).toString(), Toast.LENGTH_LONG).show();
-
 	            
 	        	Intent intent = new Intent(SecondActivity.this, MainActivity.class);
 	        	intent.putExtra("id", position);
